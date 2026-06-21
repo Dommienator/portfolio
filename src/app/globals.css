@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --color-stone: #edeae3;
+  --color-paper: #f7f5f0;
+  --color-ink: #1f2d2a;
+  --color-ink-light: #2c3e3a;
+  --color-marigold: #e0a634;
+  --color-marigold-dark: #b9821f;
+  --color-teal: #3c6e62;
+  --color-charcoal: #222220;
+  --color-rust: #a8501f;
+}
+
+@theme inline {
+  --color-stone: var(--color-stone);
+  --color-paper: var(--color-paper);
+  --color-ink: var(--color-ink);
+  --color-ink-light: var(--color-ink-light);
+  --color-marigold: var(--color-marigold);
+  --color-marigold-dark: var(--color-marigold-dark);
+  --color-teal: var(--color-teal);
+  --color-charcoal: var(--color-charcoal);
+  --color-rust: var(--color-rust);
+
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-plex-mono);
+}
+
+body {
+  background: var(--color-stone);
+  color: var(--color-charcoal);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display), serif;
+}
+
+.font-mono-label {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.08em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-marigold-dark);
+  outline-offset: 2px;
+}
+
+.thread-path {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  transition: stroke-dashoffset 1.4s ease;
+}
+.thread-path.in-view {
+  stroke-dashoffset: 0;
+}
