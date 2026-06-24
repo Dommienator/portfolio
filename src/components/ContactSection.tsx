@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 
-export default function ContactSection() {
+export default function ContactSection({
+  email,
+  phone,
+}: {
+  email?: string;
+  phone?: string;
+}) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -37,9 +43,16 @@ export default function ContactSection() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 py-20">
       <p className="font-mono-label text-xs uppercase text-teal mb-2">Get in touch</p>
-      <h2 className="font-display text-3xl sm:text-4xl text-ink mb-8">
+      <h2 className="font-display text-3xl sm:text-4xl text-ink mb-4">
         Tell me what you&#x2019;re building.
       </h2>
+      {(email || phone) && (
+        <p className="font-mono-label text-sm text-ink-light mb-8">
+          {email && <span>{email}</span>}
+          {email && phone && <span> · </span>}
+          {phone && <span>{phone}</span>}
+        </p>
+      )}
 
       {status === "sent" ? (
         <p className="rounded-2xl bg-teal/10 text-teal p-6 max-w-xl">

@@ -8,6 +8,7 @@ export type Service = {
   title: string;
   description: string;
   tags: string[];
+  proof_stat?: string | null;
 };
 
 export default function CapabilityLedger({ services }: { services: Service[] }) {
@@ -70,6 +71,11 @@ export default function CapabilityLedger({ services }: { services: Service[] }) 
               <div>
                 <h3 className="font-display text-2xl text-ink">{service.title}</h3>
                 <p className="mt-2 text-ink-light max-w-2xl">{service.description}</p>
+                {service.proof_stat && (
+                  <p className="mt-2 font-mono-label text-xs uppercase text-rust">
+                    {service.proof_stat}
+                  </p>
+                )}
                 <div className="mt-3 flex flex-wrap gap-2">
                   {service.tags?.map((tag) => (
                     <span

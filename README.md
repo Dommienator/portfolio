@@ -8,9 +8,15 @@ PayPal). Built with Next.js, deployed on Vercel, backed by Supabase.
 
 ### a) Supabase (database)
 1. Create a free project at https://supabase.com
-2. Open the SQL editor, paste the contents of `supabase/schema.sql`, and run it.
-3. Go to Project Settings -> API and copy the Project URL, anon public key,
-   and service_role key.
+2. Open the SQL editor, paste the contents of `supabase/schema.sql`, run it.
+3. Then paste the contents of `supabase/migration_2_extended_cms.sql` and run
+   that too — it adds the settings, stats, testimonials, and process-step
+   tables behind the expanded CMS panel (safe to run even on a project
+   that already has the first schema in place; it only adds things).
+4. Go to Project Settings -> API and copy the Project URL, anon public key,
+   and service_role key (Supabase has also started calling these the
+   "Publishable key" and "Secret key" on newer projects -- either naming
+   works, they're the same two values).
 
 ### b) Resend (contact form emails)
 1. Create a free account at https://resend.com
@@ -56,8 +62,11 @@ the CMS panel with the password you set as ADMIN_PASSWORD.
 
 ## 4. Day-to-day use
 
-- Edit your services or projects: sign in at /admin, edit, click Save.
-  Changes appear on the homepage immediately (no redeploy needed).
+- Edit everything: sign in at /admin, use the tabs across the top —
+  Settings (your name, tagline, contact info, "why this combination" story,
+  availability), Services, Projects, Stats, Testimonials, Process. Edit,
+  click Save. Changes appear on the homepage immediately (no redeploy
+  needed).
 - Leads: every contact-form submission is both emailed to you and saved
   in the leads table in Supabase, so nothing is lost if email delivery
   ever fails.

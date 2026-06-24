@@ -15,5 +15,9 @@ export const config = {
     "/admin/dashboard/:path*",
     "/api/admin/services/:path*",
     "/api/admin/projects/:path*",
+    "/api/admin/settings/:path*",
+    "/api/admin/stats/:path*",
+    "/api/admin/testimonials/:path*",
+    "/api/admin/process/:path*",
   ],
 };

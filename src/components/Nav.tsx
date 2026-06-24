@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export default function Nav() {
+export default function Nav({ fullName = "Portfolio" }: { fullName?: string }) {
   return (
     <header className="sticky top-0 z-40 bg-ink text-stone">
       <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
         <Link href="/" className="font-display text-lg tracking-tight">
-          Your Name
+          {fullName}
         </Link>
         <nav className="hidden sm:flex items-center gap-8 font-mono-label text-xs uppercase">
           <a href="#capabilities" className="hover:text-marigold transition-colors">

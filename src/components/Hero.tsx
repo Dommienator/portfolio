@@ -1,20 +1,21 @@
-export default function Hero() {
+export type HeroSettings = {
+  full_name: string;
+  tagline: string;
+};
+
+export default function Hero({ settings }: { settings: HeroSettings }) {
   return (
-    <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-24 sm:pb-28 grid sm:grid-cols-5 gap-10">
+    <section className="mx-auto max-w-6xl px-6 pt-16 pb-10 sm:pt-24 sm:pb-12 grid sm:grid-cols-5 gap-10">
       <div className="sm:col-span-3">
         <p className="font-mono-label text-xs uppercase text-teal mb-4">
           Build &middot; Analyze &middot; Write &middot; Transact
         </p>
         <h1 className="font-display text-4xl sm:text-6xl leading-[1.05] text-ink">
-          One person, one
-          <span className="italic text-rust"> connected </span>
+          {settings.full_name} —
+          <span className="italic text-rust"> one connected </span>
           skill set.
         </h1>
-        <p className="mt-6 text-lg text-ink-light max-w-xl">
-          I build websites, read the data they generate, write the words that
-          fill them, and wire up the payments that come through them — as one
-          continuous practice, not four unrelated gigs.
-        </p>
+        <p className="mt-6 text-lg text-ink-light max-w-xl">{settings.tagline}</p>
         <div className="mt-8 flex flex-wrap gap-4">
           <a
             href="#contact"
